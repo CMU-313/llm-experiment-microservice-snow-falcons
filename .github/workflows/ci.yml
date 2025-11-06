@@ -21,8 +21,10 @@ jobs:
     - name: Install UV
       run: pip install uv
     
-    - name: Install dependencies
-      run: uv pip install -r requirements.txt
+    - name: Create virtual environment and install dependencies
+      run: |
+        uv init
+        uv add -r requirements.txt
     
     - name: Run tests
       run: uv run pytest
